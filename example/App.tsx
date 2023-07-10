@@ -22,13 +22,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Nombre de page: {pageCount ?? "Chargement..."}</Text>
-      {preview ? (
-        <Image
-          source={{ uri: preview }}
-          style={{ width: 210, height: 297 }}
-          resizeMode="contain"
-        />
-      ) : null}
+      -
     </View>
   );
 }
