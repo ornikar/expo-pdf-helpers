@@ -2,7 +2,7 @@ package expo.modules.pdfhelpers
 
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
-import expo.modules.kotlin.Promise
+import expo.modules.core.Promise
 import expo.modules.kotlin.records.Field
 import expo.modules.kotlin.records.Record
 import android.content.ContentResolver
