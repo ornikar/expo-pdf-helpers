@@ -2,7 +2,7 @@ package expo.modules.pdfhelpers
 
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
-import expo.modules.core.Promise
+import expo.modules.kotlin.Promise
 import expo.modules.kotlin.records.Field
 import expo.modules.kotlin.records.Record
 import android.content.ContentResolver
@@ -44,13 +44,13 @@ class ExpoPdfHelpersModule : Module() {
       try {
         parcelFileDescriptor = getParcelFileDescriptor(filePath)
         if (parcelFileDescriptor !is ParcelFileDescriptor) {
-          promise.reject("FILE_NOT_FOUND", "File $filePath not found")
+          promise.reject("FILE_NOT_FOUND", "File $filePath not found", null)
         } else {
           pdfRenderer = PdfRenderer(parcelFileDescriptor)
           promise.resolve(pdfRenderer.pageCount)
         }
       } catch (ex: IOException) {
-        promise.reject("INTERNAL_ERROR", ex)
+        promise.reject("INTERNAL_ERROR", null, ex)
       } finally {
         pdfRenderer?.close()
         parcelFileDescriptor?.close()
@@ -63,18 +63,18 @@ class ExpoPdfHelpersModule : Module() {
       try {
         parcelFileDescriptorThumbnail = getParcelFileDescriptor(filePath)
         if (parcelFileDescriptorThumbnail !is ParcelFileDescriptor) {
-          promise.reject("FILE_NOT_FOUND", "File $filePath not found")
+          promise.reject("FILE_NOT_FOUND", "File $filePath not found", null)
         } else {
           pdfRendererThumbnail = PdfRenderer(parcelFileDescriptorThumbnail)
           if (page < 0 || page >= pdfRendererThumbnail.pageCount) {
-            promise.reject("INVALID_PAGE", "Page number $page is invalid, file has ${pdfRendererThumbnail.pageCount} pages")
+            promise.reject("INVALID_PAGE", "Page number $page is invalid, file has ${pdfRendererThumbnail.pageCount} pages", null)
           }
   
           val result = renderPage(pdfRendererThumbnail, page, filePath, quality)
           promise.resolve(result)
         }
       } catch (ex: IOException) {
-        promise.reject("INTERNAL_ERROR", ex)
+        promise.reject("INTERNAL_ERROR", null, ex)
       } finally {
         pdfRendererThumbnail?.close()
         parcelFileDescriptorThumbnail?.close()
