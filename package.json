@@ -21,13 +21,13 @@
     "expo-pdf-helpers",
     "ExpoPdfHelpers"
   ],
-  "repository": "https://github.com/CorentinAndre/expo-pdf-helpers",
+  "repository": "https://github.com/ornikar/expo-pdf-helpers",
   "bugs": {
-    "url": "https://github.com/CorentinAndre/expo-pdf-helpers/issues"
+    "url": "https://github.com/ornikar/expo-pdf-helpers/issues"
   },
   "author": "Corentin André <corentin7andre8@gmail.com> (https://github.com/CorentinAndre)",
   "license": "MIT",
-  "homepage": "https://github.com/CorentinAndre/expo-pdf-helpers#readme",
+  "homepage": "https://github.com/ornikar/expo-pdf-helpers#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.0.25",
